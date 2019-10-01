@@ -18,17 +18,18 @@ function buildMetadata(sample) {
 
     // BONUS: Build the Gauge Chart
 // buildGauge(data.WFREQ);
-  // Enter a speed between 0 and 180
+
+  // Set up variables
     var level = data.WFREQ;
 
-    // Trig to calc meter point
+    // Variables to calculate degrees, radius, radians
     var degrees = 180 - (level*20),
          radius = .7;
     var radians = degrees * Math.PI / 180;
     var x = radius * Math.cos(radians);
     var y = radius * Math.sin(radians);
     
-    // Path: may have to change to create a better triangle
+    // Set up path
     var mainPath = 'M -.0 -0.025 L .0 0.025 L ',
          pathX = String(x),
          space = ' ',
@@ -36,6 +37,7 @@ function buildMetadata(sample) {
          pathEnd = ' Z';
     var path = mainPath.concat(pathX,space,pathY,pathEnd);
     
+    // Set up scatter plot and pie chart and formatting
     var data = [{ type: 'scatter',
        x: [0], y:[0],
         marker: {size: 28, color:'850000'},
